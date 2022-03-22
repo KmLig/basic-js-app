@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: linear-gradient(45deg, rgb(192, 192, 211), rgb(230, 230, 193)) no-repeat;
+        }
+        p.p_Bold{
+            font-weight: bold;
+        }
+        div.displayButton{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h3>Click the button to dislay an alert box.</h3>
+    <button onclick="notify()">Try it</button>
+    <p class="p_Bold" id="name"></p>
+    <p class="p_Bold" id="city"></p>
+    <p class="p_Bold" id="mobile"></p>
+    <p class="p_Bold" id="age"></p>
+    <p class="p_Bold" id="gender"></p>
+    <p class="p_Bold" id="email"></p>
+    <p class="p_Bold" id="job"></p>
+    <div class="displayButton" id="displayButton">
+        <button>Bước tiếp theo</button>
+    </div>
+
+
+
+    <script>
+        // create function to caculate user's age from user's year of birth
+        function caculateAge(year, currentYear) {
+            return currentYear - year;
+        }
+        // notify function will be called when user click on Try it button.
+        function notify() {
+            // greeting
+            alert("Chào mừng bạn đến ứng dụng JavaScript đầu tiên");
+            let name = prompt("Hãy nhập tên của bạn:");
+            // prompt user to input his/her name
+            if(name != null) {
+                document.getElementById("name").innerHTML = "Xin chào " + name + " .";
+            }
+            // prompt user to input his/her city
+            let city = prompt("Hãy nhập thành phố bạn đang sống:");
+            if(city != null) {
+                document.getElementById("city").innerHTML = "Bạn đang sống tại " + city + " .";
+            }
+            // prompt user to input his/her mobile number
+            let mobile = prompt("Hãy nhập số điện thoại của bạn:");
+            if (mobile != null) {
+                while (isNaN(mobile)) {
+                    mobile = prompt("Vui lòng nhập lại bằng số cho số điện thoại của bạn!");
+                }
+                document.getElementById("mobile").innerHTML = "Số điện thoại: " + mobile;
+            }
+            // prompt user to input his/her year of birth
+            let year = prompt("Hãy nhập năm sinh:");
+            if (year != null) {
+                // check whether the input year is correct or not                
+                if (year > new Date().getFullYear()) {
+                    let flagYear = false;
+                    // use while loop to prompt user to input his/her year of birth again
+                    while (flagYear == false) {
+                        year = prompt("Vui lòng nhập lại năm sinh của bạn.");
+                        if (year <= new Date().getFullYear()) {
+                            flagYear = true;
+                        }
+                    }                    
+                }                               
+                let age = caculateAge(year, new Date().getFullYear());
+                document.getElementById("age").innerHTML = "Tuổi của bạn là: " + age;            
+            }
+            // prompt user to input his/her gender
+            let checkGender = prompt("Giới tính của bạn là? 1.Nam 2.Nữ")            
+            // check whether the user's input is correct or not
+            if (checkGender != 1 && checkGender !=2) {
+                let flagGender = false;
+                while (flagGender == false) {
+                checkGender = prompt("Vui lòng chọn 1 hoặc 2 để thể hiện giới tính của bạn. 1.Nam 2.Nữ");
+                    if (checkGender == 1 || checkGender == 2) {
+                        flagGender = true;
+                    }
+                }
+            }
+            let gender = "Nam";
+            if (checkGender == 2) {
+                    gender = "Nữ";   
+                }                
+            document.getElementById("gender").innerHTML = "Giới tính của bạn là: " + gender;                          
+            // prompt user to input his/her email            
+            let email = prompt("Nhập email của bạn:");
+            if (email !=  null) {
+                document.getElementById("email").innerHTML = "Email của bạn là: " + email;
+            }
+            // prompt user to input his/her job
+            let job = prompt("Nhập công việc của bạn:");
+            if (job != null) {
+                document.getElementById("job").innerHTML = "Công việc của bạn là :" + job;
+            }
+            document.getElementById("displayButton").style.display ="block";
+        }
+        
+    </script>
+</body>
+</html>
