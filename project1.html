@@ -44,17 +44,17 @@
             alert("Chào mừng bạn đến ứng dụng JavaScript đầu tiên");
             let name = prompt("Hãy nhập tên của bạn:");
             // prompt user to input his/her name
-            if(name != null) {
+            if(name != null && name != '') {
                 document.getElementById("name").innerHTML = "Xin chào " + name + " .";
             }
             // prompt user to input his/her city
             let city = prompt("Hãy nhập thành phố bạn đang sống:");
-            if(city != null) {
+            if(city != null && city != '') {
                 document.getElementById("city").innerHTML = "Bạn đang sống tại " + city + " .";
             }
             // prompt user to input his/her mobile number
             let mobile = prompt("Hãy nhập số điện thoại của bạn:");
-            if (mobile != null) {
+            if (mobile != null && mobile != '') {
                 while (isNaN(mobile)) {
                     mobile = prompt("Vui lòng nhập lại bằng số cho số điện thoại của bạn!");
                 }
@@ -62,7 +62,7 @@
             }
             // prompt user to input his/her year of birth
             let year = prompt("Hãy nhập năm sinh:");
-            if (year != null) {
+            if (year != null && year != '') {
                 // check whether the input year is correct or not                
                 if (year > new Date().getFullYear()) {
                     let flagYear = false;
@@ -96,17 +96,18 @@
             document.getElementById("gender").innerHTML = "Giới tính của bạn là: " + gender;                          
             // prompt user to input his/her email            
             let email = prompt("Nhập email của bạn:");
-            if (email !=  null) {
+            if (email !=  null && email != '') {
                 document.getElementById("email").innerHTML = "Email của bạn là: " + email;
             }
             // prompt user to input his/her job
             let job = prompt("Nhập công việc của bạn:");
-            if (job != null) {
+            if (job != null && job != '') {
                 document.getElementById("job").innerHTML = "Công việc của bạn là :" + job;
             }
             document.getElementById("displayButton").style.display ="block";
         }
-        
+        const n = 2%3 ;
+console.log(n);           
     </script>
 </body>
 </html>
